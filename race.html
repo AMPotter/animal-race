@@ -1,0 +1,36 @@
+<script>
+
+  var rabbit, turtle
+  function Animal (name, speed, focus) {
+    this.name = name;
+    this.speed = speed;
+    this.focus = focus;
+    this.position = 0;
+    this.race = function () {
+      if (Math.random() * 10 < this.focus)  {
+        this.position += this.speed
+      };
+    };
+  };
+
+  rabbit = new Animal("Billy Bob", 10, 3);
+  turtle = new Animal("Jimbo", 4, 9);
+
+  racing = true
+  while (racing) {
+    if (turtle.position >= 50 && rabbit.position < 50) {
+        alert("Jimbo takes the gold!");
+        racing = false
+      } else if (turtle.position < 50 && rabbit.position >= 50) {
+        alert("In America, sometimes the bad guys do win.");
+        racing = false
+      } else if (turtle.position >= 50 && rabbit.position >= 50) {
+        alert ("Billy Bob and Jimbo are thrown into an existential crisis as their tie forces them to examine the subjectivity of their worth in specific contexts.");
+        racing = false
+      } else {
+        turtle.race();
+        rabbit.race();
+      };
+  };
+
+</script>
